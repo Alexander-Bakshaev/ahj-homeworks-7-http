@@ -283,19 +283,27 @@ class HelpDesk {
     this.openModal(this.deleteModal);
   }
 
-  deleteTicket() {
+  async deleteTicket() {
     if (this.isLoading) return;
     
     this.setLoading(true);
-    fetch(
-      `${this.baseURL}?method=deleteTicket&id=${this.currentDeleteId}`,
-      { method: 'DELETE' }
-    )
-    .then(() => {
+    try {
+      const response = await fetch(
+        `${this.baseURL}?method=deleteTicket&id=${this.currentDeleteId}`,
+        { method: 'DELETE' }
+      );
+      
+      if (!response.ok) throw new Error('Ошибка удаления тикета');
+      
       this.closeModal(this.deleteModal);
       this.fetchTickets();
-    })
-    .finally(() => this.setLoading(false));
+    } catch (error) {
+      console.error('Ошибка при удалении тикета:', error);
+      // Показываем ошибку в контейнере тикетов
+      this.showError(this.ticketsContainer, 'Не удалось удалить тикет');
+    } finally {
+      this.setLoading(false);
+    }
   }
 }
 

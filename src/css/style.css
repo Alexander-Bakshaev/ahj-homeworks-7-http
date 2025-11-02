@@ -1,4 +1,4 @@
-/* General Styles */
+/* Общие стили */
 body {
   font-family: Arial, sans-serif;
 }
@@ -31,7 +31,7 @@ body {
 /* Основная кнопка (OK, Сохранить) */
 .modal-buttons button:last-child,
 .modal-buttons-delete button:last-child {
-  background: #4caf50; /* Зеленый */
+  background: #4caf50; /* Зеленый цвет */
   color: white;
   border: 1px solid #43a047;
 }
@@ -57,7 +57,7 @@ body {
 
 /* Кнопка удаления */
 .modal-buttons-delete button:last-child {
-  background: #f44336; /* Красный */
+  background: #f44336; /* Красный цвет */
   border-color: #d32f2f;
 }
 
@@ -75,7 +75,7 @@ body {
   opacity: 0.7;
 }
 
-/* Ticket Container */
+/* Контейнер тикетов */
 #ticketsContainer {
   clear: both;
   display: flex;
@@ -85,17 +85,17 @@ body {
 
 /* Ticket Styles */
 .ticket {
-  background-color: #FFF; /* светлый фон */
+  background-color: #FFF; /* Светлый фон */
   margin-bottom: -1px;
   padding: 15px;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 98%;
-  border: solid #ccc 1px; /* более мягкая рамка */
+  border: solid #ccc 1px; /* Мягкая рамка */
 }
 
-/* Ticket Content */
+/* Содержимое тикета */
 .ticket-content {
   display: flex;
   align-items: center;
@@ -116,12 +116,12 @@ body {
   margin-right: 50px;
 }
 
-/* Ticket Description */
+/* Описание тикета */
 .ticket-details {
   display: none;
   padding-top: 10px;
   font-size: 20px;
-  color: #555; /* чуть более тёмный серый */
+  color: #555; /* Темно-серый цвет */
   border-top: 1px solid #eee;
   margin-top: 10px;
   margin-left: 60px;
@@ -131,12 +131,12 @@ body {
   word-break: break-word;
 }
 
-/* Checkbox Styles */
+/* Стили чекбокса */
 .ticket input[type="checkbox"] {
   appearance: none;
   width: 35px;
   height: 35px;
-  border: 2px solid #aaa; /* рамка мягче */
+  border: 2px solid #aaa; /* Мягкая рамка */
   border-radius: 50%;
   cursor: pointer;
   position: relative;
@@ -144,12 +144,12 @@ body {
 }
 
 .ticket input[type="checkbox"]:checked {
-  background-color: #007bff; /* новый цвет: синий */
+  background-color: #007bff; /* Синий цвет */
   border-color: #007bff;
 }
 
 .ticket input[type="checkbox"]:checked::after {
-  content: "✔"; /* галочка */
+  content: "✔"; /* Галочка */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -158,20 +158,20 @@ body {
   font-size: 20px;
 }
 
-/* Time Formatting */
+/* Форматирование времени */
 .ticket-time {
   font-size: 20px;
   color: #888;
   margin-left: auto;
 }
 
-/* Ticket Buttons */
+/* Кнопки тикета */
 .ticket button {
   background: none;
-  border: solid #007bff 1px; /* синий рамка */
+  border: solid #007bff 1px; /* Синяя рамка */
   cursor: pointer;
   font-size: 27px;
-  color: #007bff; /* синий текст по умолчанию */
+  color: #007bff; /* Синий текст по умолчанию */
   margin-left: 10px;
   transition: color 0.3s ease, background-color 0.3s ease;
   width: 40px;
@@ -184,40 +184,40 @@ body {
 }
 
 .ticket button:hover {
-  background-color: #e6f0ff; /* лёгкий синий фон при наведении */
+  background-color: #e6f0ff; /* Светло-синий фон при наведении */
 }
 
-/* Edit Button */
+/* Кнопка редактирования */
 .edit-btn {
-  color: #28a745 !important; /* зелёный цвет */
+  color: #28a745 !important; /* Зеленый цвет */
   border-color: #28a745;
 }
 
 .edit-btn::after {
-  content: "\270E"; /* ✎ иконка редактирования */
+  content: "\270E"; /* Иконка редактирования ✎ */
   position: absolute;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* Delete Button */
+/* Кнопка удаления */
 .delete-btn {
-  color: #dc3545 !important; /* красный цвет */
+  color: #dc3545 !important; /* Красный цвет */
   border-color: #dc3545;
 }
 
 .delete-btn::after {
-  content: "\00D7"; /* × иконка удаления */
+  content: "\00D7"; /* Иконка удаления × */
   position: absolute;
   top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-/* Add Ticket Button */
+/* Кнопка добавления тикета */
 #addTicket {
-  background-color: #007bff; /* синий фон */
+  background-color: #007bff; /* Синий фон */
   color: white;
   padding: 12px 25px;
   border-radius: 5px;
@@ -231,7 +231,7 @@ body {
 }
 
 #addTicket:hover {
-  background-color: #0056b3; /* более тёмный синий при наведении */
+  background-color: #0056b3; /* Темно-синий при наведении */
 }
 
 /* Базовые стили для полей ввода */
@@ -373,14 +373,14 @@ textarea.error::placeholder {
 
 /* Удалены дублирующиеся стили кнопок отмены, так как они уже определены в .modal-buttons */
 
-/* Button Focus Shadow */
+/* Тень при фокусе кнопки */
 button:focus {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Error Messages */
+/* Сообщения об ошибках */
 .error-message {
-  color: #dc3545; /* красный цвет ошибки */
+  color: #dc3545; /* Красный цвет ошибки */
   font-size: 14px;
   margin-top: 10px;
   display: none;
@@ -391,7 +391,7 @@ button:focus {
   font-size: 16px;
   text-align: center;
   padding: 20px;
-  background-color: #f8d7da; /* розовато-красный фон ошибки */
+  background-color: #f8d7da; /* Розовато-красный фон ошибки */
   border-radius: 5px;
   margin: 10px 0;
 }
