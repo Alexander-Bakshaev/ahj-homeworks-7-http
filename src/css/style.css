@@ -162,6 +162,51 @@ body {
   background-color: #0056b3;          /* более тёмный синий при наведении */
 }
 
+/* Базовые стили для полей ввода */
+input[type="text"],
+textarea {
+  text-align: left !important;
+  padding: 8px !important;
+  font-family: Arial, sans-serif !important;
+  font-size: 14px !important;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 5px 0 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Стили для плейсхолдеров */
+::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+/* Стили для полей с ошибками */
+input.error,
+textarea.error {
+  border: 1px solid #ff6b6b !important;
+}
+
+input.error::placeholder,
+textarea.error::placeholder {
+  color: #ff6b6b;
+}
+
+/* Стили для сообщений об ошибках */
+.error-message {
+  color: #dc3545;
+  font-size: 0.9em;
+  margin: -10px 0 15px;
+  padding: 5px 0;
+  white-space: pre-line;
+}
+
 /* Modal Styles */
 .modal {
   display: flex;

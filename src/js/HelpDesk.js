@@ -56,6 +56,16 @@ class HelpDesk {
   }
 
   openModal(modal) {
+    // Сбрасываем ошибки при открытии модального окна
+    if (modal === this.addModal) {
+      this.hideError(this.addModalError);
+      this.ticketNameInput.classList.remove('error');
+      this.ticketDescriptionInput.classList.remove('error');
+      this.ticketNameInput.value = '';
+      this.ticketDescriptionInput.value = '';
+      this.ticketNameInput.placeholder = "Введите краткое описание";
+      this.ticketDescriptionInput.placeholder = "Введите подробное описание";
+    }
     modal.style.display = "block";
   }
 
@@ -64,8 +74,10 @@ class HelpDesk {
   }
 
   showError(element, message) {
-    element.textContent = message;
-    element.style.display = "block";
+    if (element) {
+      element.textContent = message;
+      element.style.display = "block";
+    }
   }
 
   hideError(element) {
@@ -162,20 +174,28 @@ class HelpDesk {
     
     // Сбрасываем предыдущие ошибки
     this.hideError(this.addModalError);
+    this.ticketNameInput.placeholder = "Введите краткое описание";
+    this.ticketDescriptionInput.placeholder = "Введите подробное описание";
+    this.ticketNameInput.classList.remove('error');
+    this.ticketDescriptionInput.classList.remove('error');
     
-    if (!name || !name.length) {
-      this.showError(
-        this.addModalError,
-        "Пожалуйста, укажите краткое описание.",
-      );
-      return;
+    let hasError = false;
+    
+    if (!name) {
+      this.ticketNameInput.placeholder = "Пожалуйста, укажите краткое описание";
+      this.ticketNameInput.classList.add('error');
+      this.ticketNameInput.focus();
+      hasError = true;
     }
     
-    if (!description || !description.length) {
-      this.showError(
-        this.addModalError,
-        "Пожалуйста, укажите подробное описание.",
-      );
+    if (!description) {
+      this.ticketDescriptionInput.placeholder = "Пожалуйста, укажите подробное описание";
+      this.ticketDescriptionInput.classList.add('error');
+      if (!hasError) this.ticketDescriptionInput.focus();
+      hasError = true;
+    }
+    
+    if (hasError) {
       return;
     }
     
@@ -195,6 +215,13 @@ class HelpDesk {
   openEditModal(id, event) {
     event.stopPropagation();
     this.currentEditId = id;
+    // Сбрасываем ошибки перед загрузкой данных
+    this.hideError(this.editModalError);
+    this.editTicketNameInput.classList.remove('error');
+    this.editTicketDescriptionInput.classList.remove('error');
+    this.editTicketNameInput.placeholder = "Введите краткое описание";
+    this.editTicketDescriptionInput.placeholder = "Введите подробное описание";
+
     fetch(`${this.baseURL}?method=ticketById&id=${id}`)
       .then((response) => response.json())
       .then((ticket) => {
@@ -212,20 +239,28 @@ class HelpDesk {
     
     // Сбрасываем предыдущие ошибки
     this.hideError(this.editModalError);
+    this.editTicketNameInput.placeholder = "Введите краткое описание";
+    this.editTicketDescriptionInput.placeholder = "Введите подробное описание";
+    this.editTicketNameInput.classList.remove('error');
+    this.editTicketDescriptionInput.classList.remove('error');
     
-    if (!name || !name.length) {
-      this.showError(
-        this.editModalError,
-        "Пожалуйста, укажите краткое описание.",
-      );
-      return;
+    let hasError = false;
+    
+    if (!name) {
+      this.editTicketNameInput.placeholder = "Пожалуйста, укажите краткое описание";
+      this.editTicketNameInput.classList.add('error');
+      this.editTicketNameInput.focus();
+      hasError = true;
     }
     
-    if (!description || !description.length) {
-      this.showError(
-        this.editModalError,
-        "Пожалуйста, укажите подробное описание.",
-      );
+    if (!description) {
+      this.editTicketDescriptionInput.placeholder = "Пожалуйста, укажите подробное описание";
+      this.editTicketDescriptionInput.classList.add('error');
+      if (!hasError) this.editTicketDescriptionInput.focus();
+      hasError = true;
+    }
+    
+    if (hasError) {
       return;
     }
     
