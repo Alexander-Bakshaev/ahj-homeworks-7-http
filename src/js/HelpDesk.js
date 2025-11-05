@@ -53,6 +53,35 @@ class HelpDesk {
     this.confirmDeleteTicket.addEventListener("click", () =>
       this.deleteTicket()
     );
+
+    // Сбрасываем стили ошибок при вводе в поля формы
+    this.ticketNameInput.addEventListener('input', () => {
+      if (this.ticketNameInput.classList.contains('error')) {
+        this.ticketNameInput.classList.remove('error');
+        this.ticketNameInput.placeholder = "Введите краткое описание";
+      }
+    });
+
+    this.ticketDescriptionInput.addEventListener('input', () => {
+      if (this.ticketDescriptionInput.classList.contains('error')) {
+        this.ticketDescriptionInput.classList.remove('error');
+        this.ticketDescriptionInput.placeholder = "Введите подробное описание";
+      }
+    });
+
+    this.editTicketNameInput.addEventListener('input', () => {
+      if (this.editTicketNameInput.classList.contains('error')) {
+        this.editTicketNameInput.classList.remove('error');
+        this.editTicketNameInput.placeholder = "Введите краткое описание";
+      }
+    });
+
+    this.editTicketDescriptionInput.addEventListener('input', () => {
+      if (this.editTicketDescriptionInput.classList.contains('error')) {
+        this.editTicketDescriptionInput.classList.remove('error');
+        this.editTicketDescriptionInput.placeholder = "Введите подробное описание";
+      }
+    });
   }
 
   openModal(modal) {
